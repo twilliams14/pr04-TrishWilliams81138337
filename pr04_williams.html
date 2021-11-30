@@ -1,0 +1,337 @@
+<!--Trish Williams Project 4-->
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="utf-8"/>
+    <title> Project 4 Williams </title>
+
+<!--imports bootstrap and jquery-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<!--imports toastr-->
+<link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+
+<!--imports moment-->  
+<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js'></script>
+
+<!--import fontawesome-->
+<script src='https://kit.fontawesome.com/b3336668f7.js' crossorigin="anonymous"></script>
+
+<style>
+h1 {
+    color: red;
+}
+input, select {
+    width: 200px;
+    height: 25px;
+    margin: 2px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+input[type="range"] {
+    width: 200px;
+}
+input[type="checkbox"] {
+    width: 20px;
+    height: 15px;
+}
+input[type="radio"] {
+    width: 20px;
+    height: 15px;
+}
+body{
+    margin-left: 5%;
+}
+.row-margin-5{
+    margin-top: 0.5em;
+}
+#startdate, #enddate{
+    width:50%;
+    float:left;
+}
+#days, #cost{
+    width:50%;
+    float:left;
+}
+#enddate, #cost, #adult{
+    margin-left:5%;
+}
+#success{
+    margin-left:1%;
+}
+</style>
+
+<body>
+<!--Input Field-->
+<h1>Input Types:</h1>
+<form>
+    <label for="text"> Text: </label><br>
+    <input type="text" placeholder="Type text.."/><br>
+</form>
+<form>
+    <label for="number"> Number: </label><br>
+    <input type="number" placeholder="Type number..."/><br>
+</form>
+<form>
+    <label for="date"> Date:</label><br>
+    <input type="date" placeholder="Type date.."/><br>
+</form>
+<form>
+    <label for="color"> Color:</label><br>
+    <input type="color"/><br>
+</form>
+<form>
+    <label for="time"> Time:</label><br>
+    <input type="time"/><br>
+</form>
+<form>
+    <label for="week"> Week:</label><br>
+    <input type="week"/><br>
+</form>
+<form>
+    <label for="month"> Month:</label><br>
+    <input type="month"/><br>
+</form>
+<form>
+    <label for="datetime"> Date Time:</label><br>
+    <input type="datetime-local"/><br>
+</form>
+<form>
+    <label for="file"> File:</label><br>
+    <input type="file"/>
+</form>
+<form>
+    <label for="password"> Password:</label><br>
+    <input type="password" placeholder="Type password..."/><br>
+</form>
+<form>
+    <label for="range"> Range:</label><br>
+    <input type="range"/><br>
+</form>
+
+<hr>
+<!--Checkbox Input-->
+<h1>Checkboxes:</h1>
+<form>
+    <input type="checkbox" id="choice1" name="choice1"
+    value="Checkbox1">
+    <label for="choice1">Checkbox01</label>
+
+    <input type="checkbox" id="choice2" name="choice2"
+    value="Checkbox2">
+    <label for="choice2">Checkbox02</label>
+
+    <input type="checkbox" id="choice3" name="choice3"
+    value="Checkbox3">
+    <label for="choice3">Checkbox03</label>
+</form>
+
+<hr>
+<!--Radios-->
+<h1>Radios:</h1>
+<form>
+    <input type="radio" id="radio01" name="radiochoice"
+    value="Radio01">
+    <label for="Radio01">Radio01</label>
+
+    <input type="radio" id="radio02" name="radiochoice"
+    value="Radio02">
+    <label for="Radio02">Radio02</label>
+
+    <input type="radio" id="radio03" name="radiochoice"
+    value="Radio03">
+    <label for="Radio03">Radio03</label>
+</form>
+
+<hr>
+<!--Dropdowns-->
+<h1>Dropdowns:</h1>
+<form>
+    <select name="dropdown" id="dropdown">
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+        <option value="pig">Pig</option>
+    </select>
+    <br><br>
+</form>
+
+<hr>
+<!--Auto-Completes-->
+<h1>Auto-Completes:</h1>
+<form>
+    <input type="search" list="favcolor" placeholder="Type item...">
+    <datalist id="favcolor">
+        <option value="Blue"></option>
+        <option value="Red"></option>
+        <option value="Yellow"></option>
+    </datalist>
+</form><br>
+
+<hr>
+<!--Text Areas-->
+<h1>Textareas:</h1>
+<form>
+    <textarea id="textarea" name="textarea" rows="2" cols="40" placeholder="Type text here..."></textarea><br>
+</form>
+
+<hr>
+<!--Buttons-->
+<h1>Buttons:</h1>
+<form>
+    <button type="button"><i class="fas fa-angle-right"></i> Button01</button>
+</form>
+
+<hr>
+<!--Bootstrap Booking Form-->
+<h1>Bootstrap Booking Form:</h1>
+
+<div class="well">Fill out the form and click the submit button when complete</div>
+<form name="myForm">
+    <div class="container-fluid">
+        <!--First column-->
+        <div class="col-sm-6">
+            <div class="panel panel-primary">
+                <!--First Row User-->
+                    <div class="panel-heading"> User:</div>
+                    <div class="panel-body">
+                        <div class="input-group">
+                            <label for="username">Username: </label>
+                            <input type="text" class="form/control" id="username" placeholder="Type username..." name="username" style="margin-left:55px" required>
+                        </div>    
+                        <div class="input-group">
+                            <label for="fname">First Name:</label>
+                            <input type="text"class="form/control" id="fname" placeholder="Type first name..." name="fname" style="margin-left:50px" required>
+                        </div>    
+                        <div class="input-group">
+                            <label for="lname">Last Name:</label>
+                            <input type="text" class="form/control" id="lname" placeholder="Type last name..." name="lname" style="margin-left:50px" required>
+                        </div>    
+                    </div>
+                 <!--Second Row Contact-->
+                <div class="panel-heading"> Contact:</div>
+                <div class="panel-body">
+                    <div class="input-group mb-3">
+                        <!--Phone Number-->
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-phone-alt"></i></span>
+                            <input type="tel" class="form-control" placeholder="type phone#..." id="phone" name="phone" required>
+                        </div>
+                        
+                        <!--Fax Number-->
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                            <span class="fa fa-fax"></span>
+                            </span>
+                            <input type="number" class="form-control" placeholder="type fax#..." id="fax" name="fax" required>
+                        </div>
+                        <!--Email-->
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <span class="fas fa-envelope"></span>
+                                </span>
+                            <input type="text" class="form-control" placeholder="type e-mail..." id="email" name="email" required>
+                        </div>
+                    </div>
+                </div>
+                 <!--Third Row Schedule-->
+                <div class="panel-heading"> Schedule: </div>
+                <div class="panel-body">
+                    <!---Adults-->
+                    <div class="input-group">
+                        <label for="adult" style="margin-left:5%;"> Adults: </label>
+                        <select class="form-control" id="adult" style="width:365%" required>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                        </select>
+                    </div>
+                    <!--Check in and Check out-->
+                    <div class="input-group">
+                        <div id="startdate" name="startdate" style="width:38%;" required>
+                            <label for="checkin">Check-In:</label>
+                            <input type="date" class="form-control">
+                        </div>
+                        <div id="enddate" name="enddate" style="width:38%;" onclick="checkDays()" required>
+                            <label for="checkout">Check-Out:</label>
+                            <input type="date" class="form-control">
+                        </div>
+                    </div>
+                    <!--Days and Cost-->
+                    <div class="input-group">
+                        <div class="input-group number" id="days" style="width:44%">
+                            <label for="inputDays">Days:</label>
+                            <input type="text" class="form-control" placeholder="Displays days..." readonly>
+                        </div>
+                        <div class="input-group number" id="cost" style="width:44%">
+                            <label for="outputCost">Cost: </label>
+                            <input type="number" class="form-control" placeholder="Displays cost..." readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!--Second column-->
+        <div class="col-sm-6">
+            <div class="panel panel-primary">
+                 <!--First Row Other-->
+                <div class="panel-heading"> Other: </div>
+                <div class="panel-body">
+                    <!--Message-->
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea class="form-control" id="message" rows="20"></textarea>
+                    </div>
+                    <!--Range-->
+                    <div class="form-group">
+                        <label for="range" class="form-label">Range:</label>
+                            <input type="range" class="form-range" min="0" max="5" step="1" id="range" style="width:100%;">
+                    </div>
+                    <!--Priority-->
+                    <div class="form-group">
+                    <label for="priority" class="form-label">Priority:</label><br>
+                    <div class="checkbox-inline">
+                        <input class="form-check-input" type="radio" name="radioOption" id="radio1" value="option1">
+                        <label class="form-check-label" for="radio1"">Low</label>
+                    </div>
+                    <div class="checkbox-inline">
+                        <input class="form-check-input" type="radio" name="radioOption" id="radio2" value="option2">
+                        <label class="form-check-label" for="radio2"">Medium</label>
+                    </div>
+                    <div class="checkbox-inline">
+                        <input class="form-check-input" type="radio" name="radioOption" id="radio3" value="option3">
+                        <label class="form-check-label" for="radio3"">High</label>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Reset and Submit Button-->
+    <div class="text-right">
+        <button type="button" class="btn btn-primary" id="reset" style="width:200px;" onclick="resetFunction()">
+            <i class="fas fa-trash"></i> Reset
+        </button>
+        <button type="button" class="btn btn-success" id="success" style="width:200px;" onclick="submitFunction()">
+            <i class="fas fa-paper-plane"></i> Submit
+        </button>
+    </div>
+</form>
+
+<!--Import JS File-->
+<script src="pr04_Williams.js"></script>
+<hr>
+
+</body>
+</html>
